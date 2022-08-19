@@ -3,17 +3,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Users</title>
 </head>
 <body>
-<div>
-    <th:block th:each="msg : ${messages}">
-        <h1 th:text="${msg}"></h1>
-    </th:block>
-</div>
+<br/>
+<div th:switch="${users}">
+    <h2 th:case="null">No users found!</h2>
+    <div th:case="*">
+        <h2>Users</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Sex</th>
+                <th>Age</th>
+            </tr>
+            </thead>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}" ></td>
+                <td th:text="${user.userName}" ></td>
+                <td th:text="${user.sex}" ></td>
+                <td th:text="${user.age}" ></td>
+                <td><a th:href="@{updateuser/{id}(id=${user.id})}">Edit</a> </td>
+                <td><a th:href="@{deletinguser/{id}(id=${user.id})}">Delete</a> </td>
+            </tr>
+        </table>
+    </div>
 
-<p>
-    <a href="/cars">Cars</a>
-</p>
+    <p><a href="/addingusers">Create user</a> </p>
+</div>
 </body>
 </html>
