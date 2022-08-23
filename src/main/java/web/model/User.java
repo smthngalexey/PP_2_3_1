@@ -5,21 +5,21 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "USERS")
+@Table(name = "users")
 @Component
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "UserName")
+    @Column(name = "user_name")
     private String userName;
 
-    @Column(name = "Sex")
+    @Column(name = "sex")
     private String sex;
 
-    @Column(name = "Age")
+    @Column(name = "age")
     private int age;
 
     public User() {

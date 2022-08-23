@@ -1,8 +1,6 @@
 package web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import web.dao.UserDAO;
 import web.model.User;
@@ -22,8 +20,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void addUser(User user) {
-        userDao.addUser(user);
+    public void saveUser(User user) {
+        userDao.saveUser(user);
     }
 
     @Transactional
@@ -38,13 +36,11 @@ public class UserServiceImpl implements UserService {
         userDao.removeUser(id);
     }
 
-    @Transactional
     @Override
     public User getUserById(Long id) {
         return userDao.getUserById(id);
     }
 
-    @Transactional
     @Override
     public List<User> getListUsers() {
         return userDao.getListUsers();
